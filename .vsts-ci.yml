@@ -19,6 +19,6 @@ steps:
 - task: AzurePowerShell@2
   inputs:
     azureConnectionType: 'ConnectedServiceNameARM'
-    azureSubscription: 'RMPM-1'
+    azureSubscription: 'RMPM'
     ScriptType: 'InlineScript'
     azurePowerShellVersion: 'LatestVersion'
