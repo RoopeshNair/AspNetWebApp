@@ -1,5 +1,4 @@
 queue: Hosted VS2017
-build:
 - stage: default
   phases:
   - phase: default
