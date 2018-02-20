@@ -1,4 +1,4 @@
-queue: local
+queue: Hosted 2017
 steps:
 - script: echo hello world...
   displayName: Sample script
