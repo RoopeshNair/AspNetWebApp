@@ -1,6 +1,6 @@
 queue: Hosted VS2017
 steps:
-- script: YAML trigger check...
+- script: echo trigger check...
   displayName: Sample script
 - script: echo agent.homeDirectory is %CD%
   displayName: Working Directory
