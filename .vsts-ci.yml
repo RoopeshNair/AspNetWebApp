@@ -1,15 +1,17 @@
 variables:
 - name: var1
   value: val1
-- group: Test
+#- group: Test
 phases:
 - phase: phase1
   queue: local
   variables:
   - name: var1
     value: val1
+  - group: Test
   steps:
   - script: echo hello %VAR2%
+  - script: echo hello %VAR3%
 - phase: phase2
   displayName: My fancy phase name
   dependsOn: phase1
