@@ -1,12 +1,12 @@
 variables:
   var1: val1
+- group: Test
 phases:
 - phase: phase1
   queue: local
   variables:
   - name: var1
     value: val1
-  - group: Test
   steps:
   - script: echo hello
 - phase: phase2
