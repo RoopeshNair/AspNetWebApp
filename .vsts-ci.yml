@@ -4,7 +4,9 @@ phases:
 - phase: phase1
   queue: local
   variables:
-    var1: val1
+  - name: var1
+    value: val1
+  - group: ronaieashUSKeyVault
   steps:
   - script: echo hello
 - phase: phase2
