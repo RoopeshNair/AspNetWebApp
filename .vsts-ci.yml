@@ -1,24 +1,26 @@
 queue: Hosted VS2017
-steps:
-- script: echo trigger check...
-  displayName: Sample script
-- script: echo agent.homeDirectory is %CD%
-  displayName: Working Directory
-  failOnStderr: true
-  condition: and(succeeded(), eq(variables['agent.os'], 'windows_nt'))
-- script: "echo ##vso[task.setvariable variable=MySecret;isSecret=true]My secret value"
-  displayName: Create a secret
-- script: echo the password is %myPassword%
-  displayName: print secret
-  env:
-   myPassword: $(MySecret)
-   enabled: true
-   continueOnError: false
-- powershell: Write-Host "Hello from PowerShell v$($PSVersionTable.PSVersion.Major)"
-  displayName: simple script
-- task: AzurePowerShell@2
-  inputs:
-     azureConnectionType: 'ConnectedServiceNameARM'
-     azureSubscription: 'RMPM'
-     ScriptType: 'InlineScript'
-     azurePowerShellVersion: 'LatestVersion'
+phases:
+- phase: A
+  steps:
+  - script: echo trigger check...
+    displayName: Sample script
+  - script: echo agent.homeDirectory is %CD%
+    displayName: Working Directory
+    failOnStderr: true
+    condition: and(succeeded(), eq(variables['agent.os'], 'windows_nt'))
+  - script: "echo ##vso[task.setvariable variable=MySecret;isSecret=true]My secret value"
+    displayName: Create a secret
+  - script: echo the password is %myPassword%
+    displayName: print secret
+    env:
+     myPassword: $(MySecret)
+     enabled: true
+     continueOnError: false
+  - powershell: Write-Host "Hello from PowerShell v$($PSVersionTable.PSVersion.Major)"
+    displayName: simple script
+  - task: AzurePowerShell@2
+    inputs:
+       azureConnectionType: 'ConnectedServiceNameARM'
+       azureSubscription: 'RMPM'
+       ScriptType: 'InlineScript'
+       azurePowerShellVersion: 'LatestVersion'
