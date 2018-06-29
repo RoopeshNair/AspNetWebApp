@@ -1,5 +1,6 @@
 variables:
-  var1: val1
+- name: var1
+  value: val1
 - group: Test
 phases:
 - phase: phase1
