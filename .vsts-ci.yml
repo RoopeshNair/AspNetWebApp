@@ -6,7 +6,7 @@ phases:
   variables:
   - name: var1
     value: val1
-  - group: ronaieashUSKeyVault
+  - group: Test
   steps:
   - script: echo hello
 - phase: phase2
