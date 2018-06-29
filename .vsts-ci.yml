@@ -1,5 +1,6 @@
 phases:
 - phase: phase1
+  queue: local
   variables:
     var1: val1
   steps:
