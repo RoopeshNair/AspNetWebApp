@@ -9,7 +9,7 @@ phases:
   - name: var1
     value: val1
   steps:
-  - script: echo hello
+  - script: echo hello $VAR1
 - phase: phase2
   displayName: My fancy phase name
   dependsOn: phase1
