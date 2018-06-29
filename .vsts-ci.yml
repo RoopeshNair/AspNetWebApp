@@ -10,7 +10,8 @@ phases:
   dependsOn: phase1
   condition: always()
   continueOnError: true
-  queue: Hosted VS2017
+  # queue: Hosted VS2017
+  queue: local
   variables:
     var1: val1
   steps:
