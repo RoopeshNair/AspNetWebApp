@@ -1,6 +1,13 @@
-queue: Hosted VS2017
 phases:
-- phase: A
+- phase: phase1
+  steps:
+  - script: echo hello
+- phase: phase2
+  displayName: My fancy phase name
+  dependsOn: phase1
+  condition: always()
+  continueOnError: true
+  queue: Hosted VS2017
   steps:
   - script: echo trigger check...
     displayName: Sample script
