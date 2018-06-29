@@ -1,5 +1,7 @@
 phases:
 - phase: phase1
+  variables:
+    var1: val1
   steps:
   - script: echo hello
 - phase: phase2
@@ -8,6 +10,8 @@ phases:
   condition: always()
   continueOnError: true
   queue: Hosted VS2017
+  variables:
+    var1: val1
   steps:
   - script: echo trigger check...
     displayName: Sample script
