@@ -2,12 +2,12 @@ variables:
   var1: val1
 stages:
 - stage: build
-phases:
-- phase: phase1
-  queue: local
-  variables:
-  - name: var1
-    value: val1
-  - group: ronaieashUSKeyVault
-  steps:
-  - script: echo hello
+  phases:
+  - phase: phase1
+    queue: local
+    variables:
+    - name: var1
+      value: val1
+    - group: ronaieashUSKeyVault
+    steps:
+    - script: echo hello
