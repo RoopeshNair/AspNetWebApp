@@ -1,46 +1,7 @@
-variables:
-- name: var1
-  value: val1
-#- group: Test
-phases:
-- phase: phase1
-  queue: local
-  variables:
-  - name: var1
-    value: val1
-  - group: Test
-  steps:
-  - script: echo hello %VAR2%
-  - script: echo hello %VAR3%
-- phase: phase2
-  displayName: My fancy phase name
-  dependsOn: phase1
-  condition: always()
-  continueOnError: true
-  # queue: Hosted VS2017
-  queue: local
-  variables:
-    var1: val1
-  steps:
-  - script: echo trigger check...
-    displayName: Sample script
-  - script: echo agent.homeDirectory is %CD%
-    displayName: Working Directory
-    failOnStderr: true
-    condition: and(succeeded(), eq(variables['agent.os'], 'windows_nt'))
-  - script: "echo ##vso[task.setvariable variable=MySecret;isSecret=true]My secret value"
-    displayName: Create a secret
-  - script: echo the password is %myPassword%
-    displayName: print secret
-    env:
-     myPassword: $(MySecret)
-     enabled: true
-     continueOnError: false
-  - powershell: Write-Host "Hello from PowerShell v$($PSVersionTable.PSVersion.Major)"
-    displayName: simple script
-  - task: AzurePowerShell@2
-    inputs:
-       azureConnectionType: 'ConnectedServiceNameARM'
-       azureSubscription: 'RMPM'
-       ScriptType: 'InlineScript'
-       azurePowerShellVersion: 'LatestVersion'
+stages:
+  stage: build
+    steps:
+    - script: echo helloworld
+  stage: test
+    steps:
+    - script: new stage
