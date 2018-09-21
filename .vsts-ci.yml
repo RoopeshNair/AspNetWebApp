@@ -4,4 +4,4 @@ stages:
     - script: echo helloworld
   stage: test
     steps:
-    - script: new stage
+    - script: echo newstage
