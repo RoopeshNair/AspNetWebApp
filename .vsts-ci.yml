@@ -6,3 +6,10 @@ stages:
     continueOnError: true
     steps:
     - script: echo My first job
+- stage: QA
+  jobs:
+  - job: QAJob
+    displayName: My First Job
+    continueOnError: true
+    steps:
+    - script: echo My first job
