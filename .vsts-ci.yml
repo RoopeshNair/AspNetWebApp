@@ -27,8 +27,28 @@ stages:
   - QA1
   - QA2
   jobs:
-  - job: QAJob
-    displayName: Prod
+  - job: ProdJob1
+    displayName: Prod Job1
+    continueOnError: true
+    steps:
+    - script: echo My first job
+  - job: ProdJob2
+    dependsOn: ProdJob1
+    displayName: Prod Job2
+    continueOnError: true
+    steps:
+    - script: echo My first job
+  - job: ProdJob3
+    displayName: Prod Job1
+    dependsOn: ProdJob1
+    continueOnError: true
+    steps:
+    - script: echo My first job
+  - job: ProdJob4
+    displayName: Prod Job2
+    dependsOn: 
+    - ProdJob2
+    - ProdJob3
     continueOnError: true
     steps:
     - script: echo My first job
