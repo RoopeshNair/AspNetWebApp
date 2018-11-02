@@ -6,8 +6,23 @@ stages:
     continueOnError: true
     steps:
     - script: echo My first job
-- stage: QA
+- stage: QA1
   dependsOn: dev
+  jobs:
+  - job: QAJob
+    displayName: QA Job
+    continueOnError: true
+    steps:
+    - script: echo My first job
+- stage: QA2
+  jobs:
+  - job: MyJob
+    displayName: Dev Job
+    continueOnError: true
+    steps:
+    - script: echo My first job
+- stage: Prod
+  dependsOn: QA1, QA2
   jobs:
   - job: QAJob
     displayName: QA Job
