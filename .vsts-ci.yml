@@ -15,6 +15,7 @@ stages:
     steps:
     - script: echo My first job
 - stage: QA2
+  dependsOn: dev
   jobs:
   - job: MyJob
     displayName: Dev Job
