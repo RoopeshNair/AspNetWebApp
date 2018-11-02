@@ -1,5 +1,5 @@
 stages:
-  stage: dev
+- stage: dev
   jobs:
   - job: MyJob
     displayName: My First Job
