@@ -2,14 +2,15 @@ stages:
 - stage: dev
   jobs:
   - job: MyJob
-    displayName: My First Job
+    displayName: Dev Job
     continueOnError: true
     steps:
     - script: echo My first job
 - stage: QA
+  dependsOn: dev
   jobs:
   - job: QAJob
-    displayName: My First Job
+    displayName: QA Job
     continueOnError: true
     steps:
     - script: echo My first job
