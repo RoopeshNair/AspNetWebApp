@@ -1,6 +1,8 @@
 stages:
   stage: build
     jobs:
-    - job: myjob
-      - script: echo hello
-
+    - job: MyJob
+      displayName: My First Job
+      continueOnError: true
+      steps:
+      - script: echo My first job
