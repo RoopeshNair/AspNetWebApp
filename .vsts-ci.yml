@@ -23,7 +23,9 @@ stages:
     steps:
     - script: echo My first job
 - stage: Prod
-  dependsOn: QA1, QA2
+  dependsOn:
+  - QA1
+  - QA2
   jobs:
   - job: QAJob
     displayName: QA Job
