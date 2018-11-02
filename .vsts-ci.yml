@@ -39,13 +39,13 @@ stages:
     steps:
     - script: echo My first job
   - job: ProdJob3
-    displayName: Prod Job1
+    displayName: Prod Job3
     dependsOn: ProdJob1
     continueOnError: true
     steps:
     - script: echo My first job
   - job: ProdJob4
-    displayName: Prod Job2
+    displayName: Prod Job4
     dependsOn: 
     - ProdJob2
     - ProdJob3
