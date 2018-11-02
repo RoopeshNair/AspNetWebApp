@@ -1,5 +1,6 @@
 stages:
   stage: build
-    steps:
-    - script: echo helloworld
+    jobs:
+    - job: myjob
+      - script: echo hello
 
