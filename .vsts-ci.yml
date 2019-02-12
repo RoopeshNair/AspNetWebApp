@@ -7,7 +7,7 @@ stages:
     steps:
     - script: echo My first job
 - stage: QA1
-  dependsOn: dev
+  dependsOn: dev2
   jobs:
   - job: QAJob
     displayName: QA1
@@ -15,7 +15,7 @@ stages:
     steps:
     - script: echo My first job
 - stage: QA2
-  dependsOn: dev
+  dependsOn: dev2
   jobs:
   - job: MyJob
     displayName: QA2
