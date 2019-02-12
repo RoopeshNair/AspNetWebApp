@@ -1,5 +1,5 @@
 stages:
-- stage: dev
+- stage: dev2
   jobs:
   - job: MyJob
     displayName: Dev Job
