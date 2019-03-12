@@ -12,4 +12,16 @@ pool:
 variables:
   buildConfiguration: 'Release'
 
+jobs:
+- job:
+  steps:
+  - script: hello world
+    displayName: 'dotnet build $(buildConfiguration)'
 
+- deployment:
+  environment: Fabfiber-Prod.devd217
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - script: hello world
