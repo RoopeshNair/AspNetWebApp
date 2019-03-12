@@ -1,28 +1,55 @@
-# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
-trigger:
-- master
-
-variables:
-  buildConfiguration: 'Release'
-
-jobs:
-- job:
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  steps:
-  - script: hello world
-    displayName: 'dotnet build $(buildConfiguration)'
-
-- deployment:
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  environment: Fabfiber-Prod.devd217
-  strategy:
-    runOnce:
-      deploy:
-        steps:
-        - script: hello world
+stages:
+- stage: dev2
+  jobs:
+  - job: MyJob
+    pool: ajyaPool
+    displayName: Dev Job
+    continueOnError: true
+    steps:
+    - script: echo My first job
+- stage: QA1
+  dependsOn: dev2
+  jobs:
+  - job: QAJob
+    displayName: QA1
+    continueOnError: true
+    steps:
+    - script: echo My first job
+- stage: QA2
+  dependsOn: dev2
+  jobs:
+  - job: MyJob
+    displayName: QA2
+    continueOnError: true
+    steps:
+    - script: echo My first job
+- stage: Prod
+  dependsOn:
+  - QA1
+  - QA2
+  jobs:
+  - job: ProdJob1
+    displayName: Prod Job1
+    continueOnError: true
+    steps:
+    - script: echo My first job
+  - job: ProdJob2
+    dependsOn: ProdJob1
+    displayName: Prod Job2
+    continueOnError: true
+    steps:
+    - script: echo My first job
+  - job: ProdJob3
+    displayName: Prod Job3
+    dependsOn: ProdJob1
+    continueOnError: true
+    steps:
+    - script: echo My first job
+  - job: ProdJob4
+    displayName: Prod Job4
+    dependsOn: 
+    - ProdJob2
+    - ProdJob3
+    continueOnError: true
+    steps:
+    - script: echo My first job
