@@ -6,19 +6,20 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'Ubuntu-16.04'
-
 variables:
   buildConfiguration: 'Release'
 
 jobs:
 - job:
+  pool:
+    vmImage: 'Ubuntu-16.04'
   steps:
   - script: hello world
     displayName: 'dotnet build $(buildConfiguration)'
 
 - deployment:
+  pool:
+    vmImage: 'Ubuntu-16.04'
   environment: Fabfiber-Prod.devd217
   strategy:
     runOnce:
