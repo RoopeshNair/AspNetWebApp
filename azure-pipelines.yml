@@ -22,3 +22,6 @@ jobs:
   environment: Fabfiber-Prod.devd217
   strategy:
     runOnce:
+      deploy:
+        steps:
+        - script: hello world
