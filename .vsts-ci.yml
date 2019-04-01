@@ -2,7 +2,7 @@ stages:
 - stage: dev2
   jobs:
   - job: MyJob
-    pool: ajyaPool
+    pool: default
     displayName: Dev Job
     continueOnError: true
     steps:
